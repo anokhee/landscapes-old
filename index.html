@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" style="background: rgba(250, 250, 235)">
+<html lang="en" style="background: rgba(255)">
 
 <head>
     <meta charset="UTF-8">
@@ -19,12 +19,43 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
+    <style>
+        body {
+            display: block;
+            font-family: monospace;
+            margin: 0 auto;
+        }
+
+        button {
+            border: 2px solid #fc94af;
+            background-color: #fcfcfc;
+            font-size: 12px;
+            padding: 5px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        button:hover {
+            background: yellow;
+        }
+    </style>
 </head>
 
 <body>
-    <div>
+
+    <div style="display: block; margin: 0 auto; width: 500px; padding-top: 30px;">
+        <h6 style="padding-bottom: 10px; text-align: center;">a tiny generative landscape</h6>
         <canvas data-processing-sources="assets/landscape_sketch.pde"></canvas>
+        <div style="display: flex; justify-content: center; padding-top: 10px;">
+            <button onClick="document.location.reload(true)">new landscape</button>
+        </div>
+
     </div>
 </body>
+<script>
+    function generateNewLandscape() {
+        console.log("hello")
+    }
+</script>
 
 </html>

@@ -21,21 +21,21 @@
 
 Sun sun = new Sun();
  
- Mountain m0 = new Mountain(0, .7, 0, mountainsHeight, .02, width * mountainsWidth); 
- Mountain m1 = new Mountain(0, .7, 0, mountainsHeight - mountainsHeight * .06, .025, width * mountainsWidth); 
- Mountain m2 = new Mountain(0, .7, 0, mountainsHeight - mountainsHeight * .15, .025, width * mountainsWidth);
- Mountain m3 = new Mountain(0, .7, 0, mountainsHeight - mountainsHeight * .24, .025, width * mountainsWidth); 
- Mountain m4 = new Mountain(0, .7, 0, mountainsHeight - mountainsHeight * .33, .025, width * mountainsWidth); 
- Mountain m5 = new Mountain(0, .7, 0, mountainsHeight - mountainsHeight * .41, .025, width * mountainsWidth);
- Mountain m6 = new Mountain(0, .7, 0, mountainsHeight - mountainsHeight * .47, .025, width * mountainsWidth);
- Mountain m7 = new Mountain(0, .7, 0, mountainsHeight - mountainsHeight * .53, .025, width * mountainsWidth);
+ Mountain m0 = new Mountain(0, .75, 0, mountainsHeight, .02, width * mountainsWidth); 
+ Mountain m1 = new Mountain(0, .75, 0, mountainsHeight - mountainsHeight * .06, .025, width * mountainsWidth); 
+ Mountain m2 = new Mountain(0, .75, 0, mountainsHeight - mountainsHeight * .15, .025, width * mountainsWidth);
+ Mountain m3 = new Mountain(0, .75, 0, mountainsHeight - mountainsHeight * .24, .025, width * mountainsWidth); 
+ Mountain m4 = new Mountain(0, .75, 0, mountainsHeight - mountainsHeight * .33, .025, width * mountainsWidth); 
+ Mountain m5 = new Mountain(0, .75, 0, mountainsHeight - mountainsHeight * .41, .025, width * mountainsWidth);
+ Mountain m6 = new Mountain(0, .75, 0, mountainsHeight - mountainsHeight * .47, .025, width * mountainsWidth);
+ Mountain m7 = new Mountain(0, .75, 0, mountainsHeight - mountainsHeight * .53, .025, width * mountainsWidth);
  
- Mountain d0 = new Mountain(0, 3, 0, height, .003, width * .02); 
- Mountain d1 = new Mountain(0, 2.25, 0, height, .003, width * .02); 
- Mountain d2 = new Mountain(0, 1.75, 0, height, .003, width * .02);
+ Mountain d0 = new Mountain(0, 2, 0, height, .003, width * .02); 
+ Mountain d1 = new Mountain(0, 2, 0, height, .003, width * .02); 
+ Mountain d2 = new Mountain(0, 2, 0, height, .003, width * .02);
  
 void setup() {
-   size(window.innerWidth, window.innerHeight/2);
+   size(500, 300);
    background(skyColor2);
    sun.draw();
    skyColor2 = color(r + rDeltaMax, g + rDeltaMax, b + rDeltaMax/5, 205);
@@ -45,7 +45,7 @@ void setup() {
 void draw() {
   noStroke();
      for (i = 0; i < width; i++){
-     makeStars(random(300));
+     makeStars(random(350));
      fill(r + 125, g + 125, b + 100, 255);
      m7.draw();
      fill(r + 120, g + 120, b + 100, 255);
@@ -82,6 +82,7 @@ class Mountain {
     newMax = nMax;
     timeInterval = tI; 
     lengthInterval = lI;
+    mLength = -10;
   }
   
   void draw(){
@@ -106,7 +107,7 @@ class Star {
   
   void draw(){
     float randSize = random(3);
-    fill(255, 255, 255, random(100, 255));
+    fill(255, 255, 255, random(0, 200));
     rect(xPos, yPos, randSize, randSize);
   }
 }
@@ -119,11 +120,11 @@ class Sun {
   Sun(){
     
     numPoints = 50;
-    angle=TWO_PI/(float)numPoints;
-    xPos = random(50, width * 8);
+    angle= TWO_PI/(float)numPoints;
+    xPos = random(width/4, width * 3.5);
     yPos = random(height/2, height/2 + 100);
-    radius = yPos/1.75; 
-    offset = random(-radius * 4, radius * 4);
+    radius = yPos/2; 
+    offset = random(0, radius * 4);
   }
   
   void draw(){
@@ -142,7 +143,7 @@ class Sun {
 
 void makeStars(int numStars){      
       if (starCount < numStars){
-        Star s = new Star(int(random(width)), int(random(height/2)));
+        Star s = new Star(int(random(width)), int(random(height/1.75)));
         s.draw();
       }
       starCount++;    
