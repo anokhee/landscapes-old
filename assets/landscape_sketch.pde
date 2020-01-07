@@ -3,7 +3,7 @@
  
  float r = random(0, 130);
  float g = random(0, 130);
- float b = random(0, 130);
+ float b = random(0, 200);
  
  float rDeltaMax = random(140, 190);
  float rDeltaMin = rDeltaMax - random(350);
@@ -12,7 +12,7 @@
   skyColor1 = color(r + rDeltaMin, g + rDeltaMin, b + rDeltaMin/2, random(0, 255));
 
  float mountainsWidth = random(.025, .1);
- float mountainsHeight = random(10, 200);
+ float mountainsHeight = random(10, 300);
   
  
  // initializes star count to 0
@@ -30,9 +30,9 @@ Sun sun = new Sun();
  Mountain m6 = new Mountain(0, .75, 0, mountainsHeight - mountainsHeight * .47, .025, width * mountainsWidth);
  Mountain m7 = new Mountain(0, .75, 0, mountainsHeight - mountainsHeight * .53, .025, width * mountainsWidth);
  
- Mountain d0 = new Mountain(0, 2, 0, height, .003, width * .02); 
- Mountain d1 = new Mountain(0, 2, 0, height, .003, width * .02); 
- Mountain d2 = new Mountain(0, 2, 0, height, .003, width * .02);
+ Mountain d0 = new Mountain(0, 5, 0, height, 2, width * .01); 
+ Mountain d1 = new Mountain(0, 5, 0, height, 2, width * .01); 
+ Mountain d2 = new Mountain(0, 5, 0, height, 2, width * .01);
  
 void setup() {
    size(500, 300);
@@ -63,11 +63,11 @@ void draw() {
      fill(r, g, b, 255);
      m0.draw();
      
-     fill(r - 20, g - 20, b - 20);
+     fill(r, g, b);
      d2.draw();
-     fill(r - 40, g - 40, b - 40);
+     fill(r - 20, g - 20, b - 20);
      d1.draw();
-     fill(r - 60, g - 60, b - 60);
+     fill(r - 40, g - 40, b - 40);
      d0.draw();
      } 
 }
