@@ -11,7 +11,7 @@
   skyColor2 = color(r + rDeltaMax, g + rDeltaMax, b + rDeltaMax/2, 255);
   skyColor1 = color(r + rDeltaMin, g + rDeltaMin, b + rDeltaMin/2, random(0, 255));
 
- float mountainsWidth = random(.025, .1);
+ float mountainsWidth = random(.02, .055);
  float mountainsHeight = random(10, 300);
   
  
@@ -35,7 +35,8 @@ Sun sun = new Sun();
  Mountain d2 = new Mountain(0, 5, 0, height, 2, width * .01);
  
 void setup() {
-   size(500, 300);
+   size(600, 300);
+   noSmooth();
    background(skyColor2);
    sun.draw();
    skyColor2 = color(r + rDeltaMax, g + rDeltaMax, b + rDeltaMax/5, 205);
@@ -93,7 +94,7 @@ class Mountain {
     float x = map(noiseValue, currentMin, currentMax, newMin, -height + newMax);
     
      if (mLength < width){
-       rect(mLength, height, mountainsWidth * 125, x);
+       rect(mLength, height, mountainsWidth * 125, x * 1.25);
      } 
   }
 }
@@ -130,9 +131,9 @@ class Sun {
   void draw(){
     noStroke();
     rectMode(CENTER);
-    fill(250, 250, 250);
+    fill(255, 255, 250, 255);
      for (j = 0; j < numPoints; j++){
-       rect(xPos, yPos + radius * cos (angle * j), 2.15 * radius * sin (angle * j), radius/5);
+       rect(xPos, yPos + radius * cos (angle * j), 2.15 * radius * sin (angle * j), radius/7.5);
      }
      fill(skyColor2);
      ellipse(xPos + offset, yPos, radius * 2, radius * 2);
