@@ -36,7 +36,6 @@ Sun sun = new Sun();
  
 void setup() {
    size(600, 300);
-   noSmooth();
    background(skyColor2);
    sun.draw();
    skyColor2 = color(r + rDeltaMax, g + rDeltaMax, b + rDeltaMax/5, 205);
